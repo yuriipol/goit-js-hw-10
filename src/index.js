@@ -16,7 +16,7 @@ inputFill.addEventListener('input', Debounce(onInputSerch, DEBOUNCE_DELAY));
 function onInputSerch(event) {
   event.preventDefault();
 
-  console.log(event.target.value);
+  // console.log(event.target.value);
 
   const inputValue = event.target.value;
   const name = inputValue.trim();
@@ -26,14 +26,15 @@ function onInputSerch(event) {
   clearContent();
 
   fetchCountries(name)
-    .then(serchCountry => renderContent(serchCountry))
+    .then(renderContent)
     .catch(error =>
       Notiflix.Notify.failure('Oops, there is no country with that name')
     );
 }
 
 function renderCountryList(countries) {
-  countryList.innerHTML = templateCountries(countries);
+  const murkup = templateCountries(countries);
+  countryList.innerHTML = murkup;
 }
 // function renderCountryList(countrys) {
 //   const markup = countrys
@@ -50,7 +51,8 @@ function renderCountryList(countries) {
 // }
 
 function renderCountry(countries) {
-  countryInfo.innerHTML = templateCountry(countries);
+  const country = templateCountry(countries);
+  countryInfo.innerHTML = country;
 }
 // function renderCountry({ name, flags: { svg } } = {}) {
 //   const countyContent = `
