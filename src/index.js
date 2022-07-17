@@ -14,7 +14,7 @@ const countryInfo = document.querySelector('.country-info');
 inputFill.addEventListener('input', Debounce(onInputSerch, DEBOUNCE_DELAY));
 
 function onInputSerch(event) {
-  event.preventDefault();
+  // event.preventDefault();
 
   // console.log(event.target.value);
 
@@ -54,12 +54,20 @@ function renderCountry(countries) {
   const country = templateCountry(countries);
   countryInfo.innerHTML = country;
 }
-// function renderCountry({ name, flags: { svg } } = {}) {
-//   const countyContent = `
-//           <img src = "${svg}" height="200" width="200"/>
-//           <p><b>Country</b>: ${name}</p>
-//           <p><b>Country</b>: ${name}</p>
-//           <p><b>Country</b>: ${name}</p>`;
+// function renderCountry({
+//   name,
+//   capital,
+//   population,
+//   flags: { svg },
+//   languages: [{ name: lang }],
+// } = {}) {
+//   const countyContent = `<div class='country style'>
+//   <img src='${svg}' height='40' width='60' class='flag_country' />
+//   <p class='name'>${name}</p>
+// </div>
+// <p><b>Capital</b>: ${capital}</p>
+// <p><b>Population</b>: ${population}</p>
+// <p><b>Languages</b>: ${lang}`;
 
 //   countryInfo.innerHTML = countyContent;
 // }
