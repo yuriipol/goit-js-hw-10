@@ -26,7 +26,10 @@ function onInputSerch(event) {
   clearContent();
 
   fetchCountries(name)
-    .then(renderContent)
+    .then(data => {
+      console.log(data);
+      renderContent(data);
+    })
     .catch(error =>
       Notiflix.Notify.failure('Oops, there is no country with that name')
     );
@@ -51,6 +54,7 @@ function renderCountryList(countries) {
 // }
 
 function renderCountry(countries) {
+  countries.languages = Object.values(countries.languages).join(',');
   const country = templateCountry(countries);
   countryInfo.innerHTML = country;
 }
