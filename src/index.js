@@ -51,7 +51,7 @@ function renderCountryList(countries) {
 // }
 
 function renderCountry(countries) {
-  countries.languages = Object.values(countries.languages).join(',');
+  countries.languages = Object.values(countries.languages).join(', ');
   const country = templateCountry(countries);
   countryInfo.innerHTML = country;
 }
