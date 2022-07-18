@@ -20,7 +20,7 @@ function onInputSerch(event) {
 
   const inputValue = event.target.value;
   const name = inputValue.trim();
-  if ((name.length = '')) {
+  if (name.length === 0) {
     return Notiflix.Notify.info('This field should not be empty');
   }
   clearContent();
