@@ -26,10 +26,7 @@ function onInputSerch(event) {
   clearContent();
 
   fetchCountries(name)
-    .then(data => {
-      console.log(data);
-      renderContent(data);
-    })
+    .then(renderContent)
     .catch(error =>
       Notiflix.Notify.failure('Oops, there is no country with that name')
     );
